@@ -1,21 +1,33 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.io.IOException;
+
 public class Main {
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) throws IOException {
+
+
+
+        List<Developer> developers = new ArrayList<>();
         Developer pierre = new Developer("Pierre", 46, true);
-        pierre.setFirstname("Pierrot");
-        Developer pasPierre = new Developer("Pas Pierre", 64, false);
-        pierre.setAge(-42);
-        System.out.println(pierre.getAge());
+        Designer designer = new Designer();
+        List<Worker> workers = new ArrayList<>();
+        workers.add(pierre);
+        workers.add(designer);
+        for (Worker worker : workers){
+            System.out.println(worker.work());
+        }
 
-        pierre.setAge(47);
-        System.out.println(pierre.getAge());
-        String fonctionReturn = pierre.getDeveloperMessage();
+        Person personne = new Developer("Paul", 35, true);
 
-        String fonctionReturn2 = pasPierre.getDeveloperMessage();
+        Payable payable = pierre;
+        System.out.println(payable.getSalary());
 
-        System.out.println(fonctionReturn);
-        System.out.println(pierre.getFirstname());
+
 
 
     }
